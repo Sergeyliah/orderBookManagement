@@ -19,6 +19,8 @@ public class Solution {
                 askMap.put(Integer.parseInt(arr[1]), Integer.parseInt(arr[2]));
             } else if (arr[0].equals("o") && arr[1].equals("sell")) {
                 bidMap.put(Collections.max(bidMap.keySet()), bidMap.get(Collections.max(bidMap.keySet())) - Integer.parseInt(arr[2]));
+            } else if (arr[0].equals("o") && arr[1].equals("buy")) {
+                askMap.put(Collections.min(askMap.keySet()), askMap.get(Collections.min(askMap.keySet())) - Integer.parseInt(arr[2]));
             } else if (arr[0].equals("q") && arr[arr.length - 1].equals("best_bid")) {
                 fileOutputStream.write((Collections.max(bidMap.keySet())+","+bidMap.get(Collections.max(bidMap.keySet()))+"\n").getBytes());
             } else if (arr[0].equals("q") && arr[arr.length - 1].equals("best_ask")) {
